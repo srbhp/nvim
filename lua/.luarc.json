@@ -1,0 +1,24 @@
+{
+    "workspace.library": [
+        "/home/sp/.config/nvim",
+        "/home/sp/.local/share/nvim/site",
+        "/home/sp/.local/share/nvim/site/pack/packer/start/LuaSnip",
+        "/home/sp/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+        "/home/sp/.local/share/nvim/site/pack/packer/start/coq.artifacts",
+        "/home/sp/.local/share/nvim/site/pack/packer/start/coq_nvim",
+        "/home/sp/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+        "/home/sp/.local/share/nvim/site/pack/packer/start/packer.nvim",
+        "/home/sp/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+        "/home/sp/.local/share/nvim/site/pack/packer/start/rose-pine",
+        "/home/sp/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+        "/home/sp/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig",
+        "/home/sp/.local/share/nvim/site/pack/packer/opt/null-ls.nvim",
+        "/home/sp/.local/share/nvim/site/pack/packer/opt/gitsigns.nvim",
+        "/home/sp/.local/share/nvim/site/pack/packer/opt/coq.thirdparty",
+        "/home/sp/.local/share/nvim/runtime",
+        "/home/sp/.local/share/nvim/runtime/pack/dist/opt/matchit",
+        "/home/sp/.local/lib64/nvim",
+        "${3rd}/luassert/library",
+        "${3rd}/luv/library"
+    ]
+}
