@@ -113,24 +113,3 @@ vim.cmd("hi DiagnosticVirtualTextError guifg=#db4b4b guibg=#2D202A")
 vim.cmd("hi DiagnosticVirtualTextWarn  guifg=#e0af68 guibg=#2E2A2D")
 vim.cmd("hi DiagnosticVirtualTextInfo  guifg=#0db9d7 guibg=#192B38")
 vim.cmd("hi DiagnosticVirtualTextHint  guifg=#1abc9c guibg=#1A2B32")
-
-------------------------------------------
----
--- vim.cmd([[autocmd VimEnter  *pp SymbolsOutline ]])
---
--- local time = os.date("*t")
--- -- When its 7am or is equal or more than 9pm = onedark
--- if time.hour < 7 or time.hour >= 17 then
--- 	-- light theme
--- 	require("rose-pine").setup({
--- 		variant = "dawn",
--- 	})
--- 	vim.cmd("colorscheme rose-pine")
--- else
--- 	-- dark theme
--- 	require("rose-pine").setup({
--- 		variant = "dawn",
--- 		-- dark_variant = "moon",
--- 	})
--- 	vim.cmd("colorscheme rose-pine")
--- end
