@@ -81,13 +81,6 @@ return require("packer").startup(function(use)
 	}) --  for (){}[]
 	-- "----------------------------LSP Tools
 	-- Code documentation
-	use({
-			"danymat/neogen",
-			config = function()
-				require("neogen").setup({ snippet_engine = "luasnip" })
-			end,
-			cmd = { "Neogen" },
-	})
 	-- Treesitter
 	use({
 			"nvim-treesitter/nvim-treesitter",
@@ -157,19 +150,6 @@ return require("packer").startup(function(use)
 			config = function()
 				require("Comment").setup()
 			end,
-	})
-	--Markdown
-	use({
-			"iamcco/markdown-preview.nvim",
-			run = "cd app && npm install",
-			setup = function()
-				vim.g.mkdp_filetypes = { "markdown" }
-				vim.g.mkdp_auto_start = 1
-				vim.g.mkdp_command_for_global = 1
-				vim.g.mkdp_open_to_the_world = 1
-				vim.g.mkdp_theme = "light"
-			end,
-			ft = { "markdown" },
 	})
 	------End of PAcker
 end)
