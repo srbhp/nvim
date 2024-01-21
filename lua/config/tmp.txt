@@ -1,8 +1,0 @@
-		clangd = ,
-		lua_ls = 
-		bashls = {},
-		vimls = {},
-		pylsp = {},
-		cmake = {},
-		texlab = 
-		textlsp 
