@@ -30,12 +30,12 @@ that I use.
 | ---------- | ------- | --------------- |
 | c/c++  	|	clangd| (apt/yum/dnf/zypper) install clangd| 
 | Lua    	|	lua_ls|https://luals.github.io/#neovim-install | 
-| Bash   	|	bashls| | 
-| Vim Script|  vimls
-| Python	|	pylsp ||
-| CMake     | 	cmake
-| Latex | 	    texlab|| 
-| Text  |	    textls|| 
+| Bash   	|	bashls|https://github.com/bash-lsp/bash-language-server | 
+| Vim Script|  vimls|https://github.com/iamcco/vim-language-server |
+| Python	|	pylsp |`pip install python-lsp-server`|
+| CMake     | 	cmake| `pip install cmake-language-server` |
+| Latex | 	    texlab|https://github.com/latex-lsp/texlab| 
+| Text  |	    textls|https://github.com/hangyav/textLSP| 
 
 ##  List of Vim/Neovim Plugins
 
