@@ -39,31 +39,6 @@ local border = {
 		{ "▏",  "FloatBorder" },
 }
 
--- lsp massage
--- table from lsp severity to vim severity.
--- local severity = {
--- 	"error",
--- 	"warn",
--- 	"info",
--- 	"info", -- map both hint and info to info?
--- }
--- vim.lsp.handlers["window/showMessage"] = function(err, method, params, client_id)
--- 	vim.notify(method.message, severity[params.type])
--- end
-
--- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
--- 	border = border,
--- 	focus = false,
--- 	width = 50,
--- })
--- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
--- 	underline = true,
--- })
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
--- List of LSP I Need to add
--- clangd, sumneko_lua, rust_analyzer, ltex, bashls, diagnosticls,
--- texlab, vimls, pyls, Changd, tsserver, jedi_language_server
 
 local servers = {
 		clangd = {
@@ -137,7 +112,6 @@ local servers = {
 						},
 				},
 		},
-		grammarly = { filetypes = { "markdown", "tex", "text", "org", "latex" } },
 		textlsp = {
 				settings = {
 						textLSP = {
@@ -260,45 +234,4 @@ vim.api.nvim_command([[autocmd CursorHold *tex  silent! TexlabForward]])
 -- vim.cmd([[autocmd CursorHold,CursorHoldI * silent! lua vim.lsp.buf.document_highlight()]])
 -- telescope-config.lua
 -- Maps
---------------------------------------------------
--- local null_ls = require("null-ls")
--- local sources = {
--- 	null_ls.builtins.formatting.stylua,
--- 	null_ls.builtins.formatting.cmake_format,
--- 	-- null_ls.builtins.formatting.yapf,
--- 	-- null_ls.builtins.formatting.astyle,
--- 	-- null_ls.builtins.formatting.clang_format,
--- 	-- null_ls.builtins.formatting.latexindent,
--- 	-- null_ls.builtins.formatting.uncrustify,
--- 	--null_ls.builtins.formatting.prettier,
--- 	null_ls.builtins.completion.spell,
--- 	null_ls.builtins.code_actions.gitsigns,
--- 	--null_ls.builtins.diagnostics.mypy,
--- 	null_ls.builtins.diagnostics.chktex,
--- 	-- null_ls.builtins.diagnostics.cppcheck,
--- 	-- null_ls.builtins.diagnostics.flake8,
--- 	null_ls.builtins.diagnostics.luacheck,
--- 	-- null_ls.builtins.diagnostics.misspell,
--- 	-- null_ls.builtins.diagnostics.proselint,
--- 	-- null_ls.builtins.diagnostics.alex,
--- 	-- null_ls.builtins.diagnostics.checkmake,
--- 	null_ls.builtins.diagnostics.codespell,
--- 	-- null_ls.builtins.diagnostics.markdownlint,
--- 	null_ls.builtins.diagnostics.shellcheck,
--- 	--null_ls.builtins.diagnostics.textlint,
--- 	-- null_ls.builtins.diagnostics.write_good,
--- 	null_ls.builtins.diagnostics.vale,
--- 	null_ls.builtins.hover.dictionary,
--- 	--null_ls.builtins.diagnostics.gccdiag,
--- 	--[[ null_ls.builtins.completion.luasnip, ]]
--- 	null_ls.builtins.completion.spell,
--- 	null_ls.builtins.completion.tags,
--- }
---
--- require("null-ls").setup({
--- 	on_init = function(new_client, _)
--- 		new_client.offset_encoding = "utf-8"
--- 	end,
--- 	sources = sources,
--- 	update_in_insert = true,
--- })
+

@@ -16,8 +16,26 @@ also install using the system package manager(apt/yum/zypper).
 	# add ~/bin to your PATH : export PATH=$PATH:~/bin
 ```
 
+### Dependencies : 
 
--- List of Plugins
+To add support for many of the Language Server Protocol (LSP)
+
+features i.e., Formatting, Code action, Documents we need 
+
+few packages which add this functionality. Programming Languages 
+
+that I use.
+
+    - c/c++  	|	clangd 
+    - Lua    	|	lua_ls 
+	- Bash   	|	bashls 
+	- Vim Script |  vimls
+	- Python		|	pylsp 
+	- CMake     | 	cmake
+    - Latex | 	    texlab 
+	- Text  |	    textlsp 
+
+##  List of Vim/Neovim Plugins
 
                 packer.nvim - Total plugins: 14
 
