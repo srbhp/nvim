@@ -26,14 +26,16 @@ few packages which add this functionality. Programming Languages
 
 that I use.
 
-    - c/c++  	|	clangd 
-    - Lua    	|	lua_ls 
-	- Bash   	|	bashls 
-	- Vim Script |  vimls
-	- Python		|	pylsp 
-	- CMake     | 	cmake
-    - Latex | 	    texlab 
-	- Text  |	    textlsp 
+| Language  | Package | How to Install |
+| ---------- | ------- | --------------- |
+| c/c++  	|	clangd| (apt/yum/dnf/zypper) install clangd| 
+| Lua    	|	lua_ls|https://luals.github.io/#neovim-install | 
+| Bash   	|	bashls| | 
+| Vim Script|  vimls
+| Python	|	pylsp ||
+| CMake     | 	cmake
+| Latex | 	    texlab|| 
+| Text  |	    textls|| 
 
 ##  List of Vim/Neovim Plugins
 
