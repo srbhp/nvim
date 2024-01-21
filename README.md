@@ -32,7 +32,7 @@ that I use.
 | Lua    	|	lua_ls|https://luals.github.io/#neovim-install | 
 | Bash   	|	bashls|https://github.com/bash-lsp/bash-language-server | 
 | Vim Script|  vimls|https://github.com/iamcco/vim-language-server |
-| Python	|	pylsp |`pip install python-lsp-server`|
+| Python	|	pylsp |`pip install python-lsp-server[all]`|
 | CMake     | 	cmake| `pip install cmake-language-server` |
 | Latex | 	    texlab|https://github.com/latex-lsp/texlab| 
 | Text  |	    textls|https://github.com/hangyav/textLSP| 
