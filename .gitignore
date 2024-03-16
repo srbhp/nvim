@@ -1,1 +1,4 @@
-plugin/
+plugin/i
+.luarc.json
+lazy-lock.json
+

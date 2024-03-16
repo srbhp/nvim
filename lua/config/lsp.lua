@@ -29,182 +29,184 @@ vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=orange ]])
 -- local border = "double"
 
 local border = {
-	{ "🭽", "FloatBorder" },
-	{ "▔", "FloatBorder" },
-	{ "🭾", "FloatBorder" },
-	{ "▕", "FloatBorder" },
-	{ "🭿", "FloatBorder" },
-	{ "▁", "FloatBorder" },
-	{ "🭼", "FloatBorder" },
-	{ "▏", "FloatBorder" },
+		{ "🭽", "FloatBorder" },
+		{ "▔",  "FloatBorder" },
+		{ "🭾", "FloatBorder" },
+		{ "▕",  "FloatBorder" },
+		{ "🭿", "FloatBorder" },
+		{ "▁",  "FloatBorder" },
+		{ "🭼", "FloatBorder" },
+		{ "▏",  "FloatBorder" },
 }
 
 
 local servers = {
-	clangd = {
-		cmd = {
-			"clangd",
-			"--background-index",
-			"--clang-tidy",
-			"--clang-tidy-checks=*",
-			"--header-insertion=iwyu",
+		clangd = {
+				cmd = {
+						"clangd",
+						"--background-index",
+						"--clang-tidy",
+						"--clang-tidy-checks=*",
+						"--header-insertion=iwyu",
+						"--enable-config",
+				},
 		},
-	},
-	lua_ls = {
-		settings = {
-			Lua = {
-				runtime = {
-					-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-					version = "LuaJIT",
+		lua_ls = {
+				settings = {
+						Lua = {
+								runtime = {
+										-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+										version = "LuaJIT",
+								},
+								diagnostics = {
+										-- Get the language server to recognize the `vim` global
+										globals = { "vim" },
+								},
+								workspace = {
+										-- Make the server aware of Neovim runtime files
+										library = vim.api.nvim_get_runtime_file("", true),
+								},
+								-- Do not send telemetry data containing a randomized but unique identifier
+								telemetry = {
+										enable = false,
+								},
+						},
 				},
-				diagnostics = {
-					-- Get the language server to recognize the `vim` global
-					globals = { "vim" },
-				},
-				workspace = {
-					-- Make the server aware of Neovim runtime files
-					library = vim.api.nvim_get_runtime_file("", true),
-				},
-				-- Do not send telemetry data containing a randomized but unique identifier
-				telemetry = {
-					enable = false,
-				},
-			},
 		},
-	},
-	bashls = {},
-	vimls = {},
-	pylsp = {
-		plugins = {
-			-- formatter options
-			black = {
-				enabled = true
-			},
-			autopep8 = {
-				enabled = false
-			},
-			yapf = {
-				enabled = false
-			},
-			-- linter options
-			pylint = {
-				enabled = true,
-			},
-			ruff = { enabled = true },
-			pyflakes = { enabled = false },
-			pycodestyle = { enabled = false },
-			-- type checker
-			pylsp_mypy = {
-				enabled = true,
-				-- overrides = { "--python-executable", py_path, true },
-				report_progress = true,
-				live_mode = false
-			},
-			-- auto-completion options
-			jedi_completion = { fuzzy = true },
-			-- import sorting
-			isort = { enabled = true },
+		bashls = {},
+		vimls = {},
+		pylsp = {
+				plugins = {
+						-- formatter options
+						black = {
+								enabled = true
+						},
+						autopep8 = {
+								enabled = false
+						},
+						yapf = {
+								enabled = false
+						},
+						-- linter options
+						pylint = {
+								enabled = true,
+						},
+						ruff = { enabled = true },
+						pyflakes = { enabled = false },
+						pycodestyle = { enabled = false },
+						-- type checker
+						pylsp_mypy = {
+								enabled = true,
+								-- overrides = { "--python-executable", py_path, true },
+								report_progress = true,
+								live_mode = false
+						},
+						-- auto-completion options
+						jedi_completion = { fuzzy = true },
+						-- import sorting
+						isort = { enabled = true },
+				},
 		},
-	},
-	cmake = {},
-	texlab = {
-		settings = {
-			texlab = {
-				--auxDirectory = "/tmp/.",
-				--bibtexFormatter = "texlab",
-				build = {
-					--args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f", "-pv" },
-					--args = { "-X", "compile", "%f", "--synctex", "--keep-logs", "--keep-intermediates" },
-					-- executable = "tectonic",
-					args = { "-lualatex", "-interaction=nonstopmode", "-synctex=1", "%f" },
-					forwardSearchAfter = true,
-					onSave = true,
-					isContinuous = true,
+		cmake = {},
+		texlab = {
+				settings = {
+						texlab = {
+								--auxDirectory = "/tmp/.",
+								--bibtexFormatter = "texlab",
+								build = {
+										--args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f", "-pv" },
+										--args = { "-X", "compile", "%f", "--synctex", "--keep-logs", "--keep-intermediates" },
+										-- executable = "tectonic",
+										args = { "-lualatex", "-interaction=nonstopmode", "-synctex=1", "%f" },
+										forwardSearchAfter = true,
+										onSave = true,
+										isContinuous = true,
+								},
+								chktex = {
+										onEdit = true,
+										onOpenAndSave = true,
+								},
+								diagnosticsDelay = 10,
+								formatterLineLength = 80,
+								forwardSearch = {
+										-- executable = "okular",
+										-- args = { "--unique", "--noraise", "file:%p#src:%l%f" },
+										-- executable = "zathura",
+										-- args = { "--synctex-forward", "%l:1:%f", "%p" },
+										executable = "evince-synctex",
+										args = { "-f", "%l", "%p", '"code -g %f:%l"' },
+										onSave = true,
+								},
+								latexFormatter = "latexindent",
+								latexindent = {
+										modifyLineBreaks = true,
+								},
+						},
 				},
-				chktex = {
-					onEdit = true,
-					onOpenAndSave = true,
-				},
-				diagnosticsDelay = 10,
-				formatterLineLength = 80,
-				forwardSearch = {
-					-- executable = "okular",
-					-- args = { "--unique", "--noraise", "file:%p#src:%l%f" },
-					-- executable = "zathura",
-					-- args = { "--synctex-forward", "%l:1:%f", "%p" },
-					executable = "evince-synctex",
-					args = { "-f", "%l", "%p", '"code -g %f:%l"' },
-					onSave = true,
-				},
-				latexFormatter = "latexindent",
-				latexindent = {
-					modifyLineBreaks = true,
-				},
-			},
 		},
-	},
-	textlsp = {
-		settings = {
-			textLSP = {
-				analysers = {
-					languagetool = {
-						enabled = true,
-						check_text = {
-							on_open = true,
-							on_save = true,
-							on_change = true,
+		textlsp = {
+				settings = {
+						textLSP = {
+								analysers = {
+										languagetool = {
+												enabled = true,
+												check_text = {
+														on_open = true,
+														on_save = true,
+														on_change = true,
+												},
+										},
+										gramformer = {
+												-- gramformer dependency needs to be installed manually
+												enabled = true,
+												gpu = true,
+												check_text = {
+														on_open = true,
+														on_save = true,
+														on_change = true,
+												},
+										},
+										openai = {
+												enabled = true,
+												api_key = "<MY_API_KEY>",
+												check_text = {
+														on_open = false,
+														on_save = false,
+														on_change = false,
+												},
+												-- model = 'text-ada-001',
+												model = "text-babbage-001",
+												-- model = 'text-curie-001',
+												-- model = 'text-davinci-003',
+												edit_model = "text-davinci-edit-001",
+												max_token = 16,
+										},
+										grammarbot = {
+												enabled = false,
+												api_key = "<MY_API_KEY>",
+												-- longer texts are split, this parameter sets the maximum number of splits per analysis
+												input_max_requests = 1,
+												check_text = {
+														on_open = false,
+														on_save = false,
+														on_change = false,
+												},
+										},
+								},
+								documents = {
+										org = {
+												org_todo_keywords = {
+														"TODO",
+														"IN_PROGRESS",
+														"DONE",
+												},
+										},
+								},
 						},
-					},
-					gramformer = {
-						-- gramformer dependency needs to be installed manually
-						enabled = true,
-						gpu = true,
-						check_text = {
-							on_open = true,
-							on_save = true,
-							on_change = true,
-						},
-					},
-					openai = {
-						enabled = true,
-						api_key = "<MY_API_KEY>",
-						check_text = {
-							on_open = false,
-							on_save = false,
-							on_change = false,
-						},
-						-- model = 'text-ada-001',
-						model = "text-babbage-001",
-						-- model = 'text-curie-001',
-						-- model = 'text-davinci-003',
-						edit_model = "text-davinci-edit-001",
-						max_token = 16,
-					},
-					grammarbot = {
-						enabled = false,
-						api_key = "<MY_API_KEY>",
-						-- longer texts are split, this parameter sets the maximum number of splits per analysis
-						input_max_requests = 1,
-						check_text = {
-							on_open = false,
-							on_save = false,
-							on_change = false,
-						},
-					},
 				},
-				documents = {
-					org = {
-						org_todo_keywords = {
-							"TODO",
-							"IN_PROGRESS",
-							"DONE",
-						},
-					},
-				},
-			},
 		},
-	},
-	-- pyright = {},
+		rust_analyzer = {},
+		-- pyright = {},
 }
 local lspconfig = require("lspconfig")
 for name, config in pairs(servers) do
@@ -219,23 +221,23 @@ end
 --------------------------------------
 
 vim.diagnostic.config({
-	underline = true,
-	signs = true,
-	virtual_text = true,
-	-- virtual_text = { source = true, prefix = "", format = rightAlignFormatFunction, spacing = 0 },
-	float = {
-		show_header = true,
-		source = true,
-		border = border,
-		focus = false,
-		scope = "line",
-		-- width = 60,
-		max_height = 5,
-		max_width = 60,
-		-- pos=15,
-	},
-	update_in_insert = true, -- default to false
-	severity_sort = true,   -- default to false
+		underline = true,
+		signs = true,
+		virtual_text = true,
+		-- virtual_text = { source = true, prefix = "", format = rightAlignFormatFunction, spacing = 0 },
+		float = {
+				show_header = true,
+				source = true,
+				border = border,
+				focus = false,
+				scope = "line",
+				-- width = 60,
+				max_height = 5,
+				max_width = 60,
+				-- pos=15,
+		},
+		update_in_insert = true, -- default to false
+		severity_sort = true, -- default to false
 })
 --
 vim.o.updatetime = 10

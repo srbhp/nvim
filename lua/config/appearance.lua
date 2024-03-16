@@ -9,10 +9,11 @@ vim.g.loaded_perl_provider = 0
 vim.opt.number = true
 vim.opt.mouse = ""
 vim.opt.smartcase = true
+vim.opt.ignorecase = true
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
 --vim.cmd([[set clipboard+=unnamedplus]])
-vim.opt.clipboard = "unnamed"
+vim.opt.clipboard = "unnamedplus"
 vim.opt.encoding = "UTF-8"
 vim.opt.undofile = true
 vim.opt.swapfile = true
@@ -29,6 +30,17 @@ vim.opt.shiftwidth = 2 -- " operation >> indents 4 columns; << unindents 4 colum
 vim.opt.tabstop = 2 --  " a hard TAB displays as 4 columns
 vim.opt.expandtab = false -- " insert spaces when hitting TABs
 vim.opt.softtabstop = 4 --" insert/delete 4 spaces when hitting a TAB/BACKSPACE
+-- Don't show the mode, since it's already in status line
+vim.opt.showmode = false
+-- Enable break indent
+vim.opt.breakindent = true
+-- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.scrolloff = 10
+
+
+-- Set highlight on search, but clear on pressing <Esc> in normal mode
+vim.opt.hlsearch = true
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- spelling
 -- vim.opt.spelllang = 'en_us'
