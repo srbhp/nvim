@@ -6,24 +6,6 @@ require("nvim-treesitter.configs").setup({
 		-- max_file_lines = nil, -- Do not enable for files with more than n lines, int
 		--},
 		--
-		ensure_installed = {
-				"bash",
-				"bibtex",
-				"c",
-				"cmake",
-				"cpp",
-				"comment",
-				"latex",
-				"lua",
-				"make",
-				"markdown",
-				-- "markdown_inline",
-				"ninja",
-				"python",
-				"regex",
-				"todotxt",
-				"vim",
-		},
 		highlight = {
 				enable = true,
 				additional_vim_regex_highlighting = false,
