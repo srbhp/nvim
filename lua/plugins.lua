@@ -54,18 +54,15 @@ require('lazy').setup({
 				end,
 
 		},
-		--
-		{
-				"rose-pine/neovim",
-				as = "rose-pine",
+		{ "catppuccin/nvim", name = "catppuccin", priority = 1000,
 				config = function()
-					require("rose-pine").setup({
-							--- @usage 'main' | 'moon'
-							dark_variant = "moon",
+					require("catppuccin").setup({
 					})
-					vim.cmd("colorscheme rose-pine")
+					vim.cmd.colorscheme "catppuccin"
 				end,
+
 		},
+		--
 		-- IndentLine
 		{
 				"lukas-reineke/indent-blankline.nvim",
