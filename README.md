@@ -64,10 +64,11 @@ the one that you need. Here are the plugins that I use.
 ## Install this config
 
  1. clone the repo
-    ``bash
-    d ~/.config/
-    it clone https://github.com/srbhp/nvim.git
-    ``
+    ```bash
+    cd ~/.config/
+    git clone https://github.com/srbhp/nvim.git
+    ```
+ 
  2. Install Plugins
 
     Launch Neovim and run the following command to install the plugins:
