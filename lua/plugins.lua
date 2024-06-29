@@ -82,9 +82,6 @@ require('lazy').setup({
 				end,
 		},
 		{
-				"kyazdani42/nvim-web-devicons",
-		},
-		{
 				"windwp/nvim-autopairs",
 		}, --  for (){}[]
 		-- "----------------------------LSP Tools

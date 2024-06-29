@@ -49,7 +49,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- vim.opt.shiftround = true --    " round indent to multiple of 'shiftwidth'
 -- vim.opt.wrap='linebreak nolist'
 vim.opt.autochdir = true
-vim.cmd([[autocmd BufWritePost *.py execute ":w !python3 % "]])
+-- vim.cmd([[autocmd BufWritePost *.py execute ":w !python3 % "]])
 -- Templates
 vim.cmd([[autocmd BufNewFile *.cpp 0r ~/.config/nvim/templates/one.cpp]])
 vim.cmd([[autocmd BufNewFile *.hpp 0r ~/.config/nvim/templates/one.hpp]])

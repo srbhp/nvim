@@ -1,26 +1,29 @@
-# neovim config
+# Setting Up Neovim for Python/C/C++ Development
+Neovim is a powerful, modernized fork of Vim that is designed for developers who want a lightweight, yet extensible text editor. Its speed, versatility, and rich plugin ecosystem make it an excellent choice for Python development. In this blog post, we'll walk through the steps to set up Neovim for a seamless Python development experience.
 
-Personal Neovim config
 
-Most of the stuff are copied from the internet.
+ ![Screenshots](nvim.png)
+
 
 ### Getting Started
 
-Install latest stable version of Neovim ( currently 0.9.5 ). We can 
-also install using the system package manager(apt/yum/zypper).
+First we need to get the latest stable version of Neovim ( currently 0.10.0 ). We can 
+also install using the system package manager `(apt/yum/zypper) install neovim` or
+we can get it from github.
+
 ```bash
-	cd ~/bin
-	wget https://github.com/neovim/neovim/releases/download/v0.9.5/nvim.appimage
-	mv nvim.appimage nvim
-	chmod +x nvim
-	# add ~/bin to your PATH : export PATH=$PATH:~/bin
+cd ~/bin
+wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage
+mv nvim.appimage nvim
+chmod +x nvim
+export PATH=$PATH:~/bin #  add ~/bin to your PATH . Add this line to your ~/.bashrc 
 ```
 
 ### Dependencies : 
 
 To add support for many of the Language Server Protocol (LSP)
 
-features i.e., Formatting, Code action, Documents we need 
+features i.e., Formatting, Code action, goto documentation we need 
 
 few packages which add this functionality. Programming Languages 
 
@@ -37,29 +40,37 @@ that I use.
 | Latex | 	    texlab|https://github.com/latex-lsp/texlab| 
 | Text  |	    textls|https://github.com/hangyav/textLSP| 
 
-##  List of Vim/Neovim Plugins
+###  List of Neovim Plugins
 
-                packer.nvim - Total plugins: 14
+There are thousands of Neovim Plugins available  in github. Only use 
+the one that you need. Here are the plugins that I use. 
 
-
-     • Comment.nvim (not loaded)
-     • alpha-nvim
-     • coq.artifacts
-     • coq_nvim
-     • indent-blankline.nvim (not loaded)
-     • lualine.nvim
-     • nvim-autopairs (not loaded)
-     • nvim-lspconfig
-     • nvim-treesitter
-     • nvim-web-devicons
-     • packer.nvim
-     • plenary.nvim
-     • rose-pine
-     • telescope.nvim
+     lazy.nvim                              # Plugin Manager
 
 
- **`(not loaded )` plugins are lazy loaded **
+     • Comment.nvim                         # shortcuts to comment a section of code
+     • alpha-nvim                           # Startup screen
+     • coq_nvim                             # Autocomplete suggestions
+     • indent-blankline.nvim                # Shows nice indentation levels of code 
+     • lualine.nvim                         # Status line
+     • nvim-autopairs                       # Automatically insert (){}[] 
+     • nvim-lspconfig                       # This configures LSP
+     • nvim-treesitter                      # Faster/Modern Syntax highlight
+     • nvim-web-devicons                    # Provides icons 
+     • plenary.nvim                         # Lua functionality
+     • rose-pine                            # Theme That I use
+     • telescope.nvim                       # Fuzzy finder for files or LSP objects
 
+## Install this config
 
+ 1. clone the repo
+    ``bash
+    d ~/.config/
+    it clone https://github.com/srbhp/nvim.git
+    ``
+ 2. Install Plugins
 
- ![Screenshots](nvim.png)
+    Launch Neovim and run the following command to install the plugins:
+    ```vim
+    :Lazy
+    ```

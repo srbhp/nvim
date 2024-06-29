@@ -1,7 +1,7 @@
 -- Define signs
 -- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " "(❌) }
 -- local signs = { Error = "🔥", Warn = "⚠️ ", Hint = "🇦", Info = "ℹ️" }
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -126,36 +126,39 @@ local servers = {
 		},
 		bashls = {},
 		vimls = {},
+		ruff = {},
 		pylsp = {
-				plugins = {
-						-- formatter options
-						black = {
-								enabled = true
+				pylsp = {
+						plugins = {
+								-- formatter options
+								black = {
+										enabled = false
+								},
+								autopep8 = {
+										enabled = false
+								},
+								yapf = {
+										enabled = false
+								},
+								-- linter options
+								pylint = {
+										enabled = true,
+								},
+								ruff = { enabled = false },
+								pyflakes = { enabled = false },
+								pycodestyle = { enabled = false },
+								-- type checker
+								pylsp_mypy = {
+										enabled = true,
+										-- overrides = { "--python-executable", py_path, true },
+										report_progress = true,
+										live_mode = false
+								},
+								-- auto-completion options
+								jedi_completion = { fuzzy = true },
+								-- import sorting
+								isort = { enabled = true },
 						},
-						autopep8 = {
-								enabled = false
-						},
-						yapf = {
-								enabled = false
-						},
-						-- linter options
-						pylint = {
-								enabled = true,
-						},
-						ruff = { enabled = true },
-						pyflakes = { enabled = false },
-						pycodestyle = { enabled = false },
-						-- type checker
-						pylsp_mypy = {
-								enabled = true,
-								-- overrides = { "--python-executable", py_path, true },
-								report_progress = true,
-								live_mode = false
-						},
-						-- auto-completion options
-						jedi_completion = { fuzzy = true },
-						-- import sorting
-						isort = { enabled = true },
 				},
 		},
 		cmake = {},
@@ -266,7 +269,7 @@ for name, config in pairs(servers) do
 	-- capabilities = capabilities,
 	--}
 	-- This is for Coq complication
-	lspconfig[name].setup(require("coq").lsp_ensure_capabilities(config))
+	lspconfig[name].setup(require("coq").lsp_ensure_capabilities({ settings = config }))
 end
 
 --------------------------------------
