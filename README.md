@@ -1,5 +1,5 @@
-<a href="https://dotfyle.com/plugins/{srbhp}/{nvim}">
-  <img src="https://dotfyle.com/plugins/{srbhp}/{nvim}/shield" />
+<a href="https://dotfyle.com/plugins/srbhp/nvim">
+  <img src="https://dotfyle.com/plugins/srbhp/nvim/shield" />
 </a
 
 # Setting Up Neovim for Python/C/C++ Development
