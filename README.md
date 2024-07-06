@@ -75,3 +75,15 @@ the one that you need. Here are the plugins that I use.
     ```vim
     :Lazy
     ```
+3. Install `coq_nvim` dependencies:
+   This need `python3-venv` package to be installed. 
+   ```vim
+    :COQdeps
+   ```
+4. Check Neovim Health.
+   
+   ```vim
+   :checkhealth
+   ```
+   This will give you current status of the Neovim and report
+   if there is any missing depndencies. 
