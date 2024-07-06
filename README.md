@@ -1,6 +1,4 @@
-<a href="https://dotfyle.com/plugins/srbhp/nvim">
-  <img src="https://dotfyle.com/plugins/srbhp/nvim/shield" />
-</a
+
 
 # Setting Up Neovim for Python/C/C++ Development
 Neovim is a powerful, modernized fork of Vim that is designed for developers who want a lightweight, yet extensible text editor. Its speed, versatility, and rich plugin ecosystem make it an excellent choice for Python development. In this blog post, we'll walk through the steps to set up Neovim for a seamless Python development experience.
