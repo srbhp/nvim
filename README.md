@@ -1,3 +1,8 @@
+<a href="https://dotfyle.com/srbhp/nvim"><img src="https://dotfyle.com/srbhp/nvim/badges/plugins?style=for-the-badge" /></a>
+<a href="https://dotfyle.com/srbhp/nvim"><img src="https://dotfyle.com/srbhp/nvim/badges/leaderkey?style=for-the-badge" /></a>
+<a href="https://dotfyle.com/srbhp/nvim"><img src="https://dotfyle.com/srbhp/nvim/badges/plugin-manager?style=for-the-badge" /></a>
+
+
 # Setting Up Neovim for Python/C/C++ Development
 Neovim is a powerful, modernized fork of Vim that is designed for developers who want a lightweight, yet extensible text editor. Its speed, versatility, and rich plugin ecosystem make it an excellent choice for Python development. In this blog post, we'll walk through the steps to set up Neovim for a seamless Python development experience.
 
@@ -75,3 +80,15 @@ the one that you need. Here are the plugins that I use.
     ```vim
     :Lazy
     ```
+3. Install `coq_nvim` dependencies:
+   This need `python3-venv` package to be installed. 
+   ```vim
+    :COQdeps
+   ```
+4. Check Neovim Health.
+   
+   ```vim
+   :checkhealth
+   ```
+   This will give you current status of the Neovim and report
+   if there is any missing depndencies. 
