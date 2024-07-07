@@ -1,6 +1,4 @@
 -- Define signs
--- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " "(❌) }
--- local signs = { Error = "🔥", Warn = "⚠️ ", Hint = "🇦", Info = "ℹ️" }
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
@@ -276,7 +274,10 @@ end
 
 vim.diagnostic.config({
 		underline = true,
-		signs = true,
+		-- signs = true,
+		signs = {
+				text = { "", "", "", "", },
+		},
 		virtual_text = true,
 		-- virtual_text = { source = true, prefix = "", format = rightAlignFormatFunction, spacing = 0 },
 		float = {
@@ -299,10 +300,6 @@ vim.o.updatetime = 10
 -- vim.cmd[[ autocmd BufEnter,CursorHold,InsertLeave * lua vim.lsp.codelens.refresh()]]
 -- You will likely want to reduce updatetime which affects CursorHold
 -- note: this setting is global and should be set only once
-
--- vim.api.nvim_command([[autocmd CursorHold,CursorHoldI *
---     lua vim.diagnostic.open_float({scope="line",pos=2}, {focus=false})]])
--- vim.cmd[[autocmd CursorHold * lua vim.lsp.buf.code_action()]]
 vim.api.nvim_command([[autocmd CursorHold * silent! lua vim.lsp.buf.hover()]])
 -- vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 
@@ -312,3 +309,4 @@ vim.api.nvim_command([[autocmd BufWritePre * lua vim.lsp.buf.format({ })]])
 
 -- vim.api.nvim_command([[autocmd BufWritePre * lua vim.lsp.buf.formatting({ })]])
 vim.api.nvim_command([[autocmd CursorHold *tex  silent! TexlabForward]])
+-- vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())

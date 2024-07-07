@@ -125,3 +125,9 @@ vim.cmd("hi DiagnosticVirtualTextError guifg=#db4b4b guibg=#2D202A")
 vim.cmd("hi DiagnosticVirtualTextWarn  guifg=#e0af68 guibg=#2E2A2D")
 vim.cmd("hi DiagnosticVirtualTextInfo  guifg=#0db9d7 guibg=#192B38")
 vim.cmd("hi DiagnosticVirtualTextHint  guifg=#1abc9c guibg=#1A2B32")
+
+-- Set <space> as the leader key
+-- See `:help mapleader`
+--  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '

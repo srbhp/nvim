@@ -83,6 +83,7 @@ require('lazy').setup({
 		},
 		{
 				"windwp/nvim-autopairs",
+				event = 'InsertEnter',
 		}, --  for (){}[]
 		-- "----------------------------LSP Tools
 		-- Code documentation
