@@ -1,6 +1,4 @@
-<a href="https://dotfyle.com/srbhp/nvim"><img src="https://dotfyle.com/srbhp/nvim/badges/plugins?style=for-the-badge" /></a>
-<a href="https://dotfyle.com/srbhp/nvim"><img src="https://dotfyle.com/srbhp/nvim/badges/leaderkey?style=for-the-badge" /></a>
-<a href="https://dotfyle.com/srbhp/nvim"><img src="https://dotfyle.com/srbhp/nvim/badges/plugin-manager?style=for-the-badge" /></a>
+![](https://dotfyle.com/srbhp/nvim/badges/plugins?style=for-the-badge) ![](https://dotfyle.com/srbhp/nvim/badges/leaderkey?style=for-the-badge) ![](https://dotfyle.com/srbhp/nvim/badges/plugin-manager?style=for-the-badge)
 
 
 # Setting Up Neovim for Python/C/C++ Development
