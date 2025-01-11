@@ -7,6 +7,7 @@ vim.g.loaded_perl_provider = 0
 -- vim.g.loaded_python_provider=0
 -- vim.g.loaded_node_provider = 0
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.mouse = ""
 vim.opt.smartcase = true
 vim.opt.ignorecase = true
@@ -22,14 +23,14 @@ vim.opt.backup = true
 vim.opt.dir = os.getenv("HOME") .. "/.vim/swap/"
 vim.opt.writebackup = true
 vim.opt.backupdir = os.getenv("HOME") .. "/.vim/backup/"
-vim.opt.undofile = true --            " Save undo's after file closes
-vim.opt.undolevels = 1000 --    " How many undos
+vim.opt.undofile = true    --            " Save undo's after file closes
+vim.opt.undolevels = 1000  --    " How many undos
 vim.opt.undoreload = 10000 --      " number of lines to save for undo
-vim.opt.textwidth = 0 -- " lines longer than 79 columns will be broken
-vim.opt.shiftwidth = 2 -- " operation >> indents 4 columns; << unindents 4 columns
-vim.opt.tabstop = 2 --  " a hard TAB displays as 4 columns
-vim.opt.expandtab = false -- " insert spaces when hitting TABs
-vim.opt.softtabstop = 4 --" insert/delete 4 spaces when hitting a TAB/BACKSPACE
+vim.opt.textwidth = 0      -- " lines longer than 79 columns will be broken
+vim.opt.shiftwidth = 2     -- " operation >> indents 4 columns; << unindents 4 columns
+vim.opt.tabstop = 2        --  " a hard TAB displays as 4 columns
+vim.opt.expandtab = false  -- " insert spaces when hitting TABs
+vim.opt.softtabstop = 4    --" insert/delete 4 spaces when hitting a TAB/BACKSPACE
 -- Don't show the mode, since it's already in status line
 vim.opt.showmode = false
 -- Enable break indent
@@ -64,8 +65,8 @@ vim.opt.termguicolors = true
 -- following options are the default
 -- remember last position
 vim.cmd(
-		[[autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]] --luacheck: ignore
-) --luacheck: ignore
+	[[autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]] --luacheck: ignore
+)                                                                                                                                              --luacheck: ignore
 vim.cmd("nmap p P")
 ------------------------------------------
 vim.cmd([[nmap <F1> <nop>]])
