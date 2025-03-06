@@ -1,21 +1,3 @@
 {
-  "name": "Neovim Development Container",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "features": {
-    "ghcr.io/devcontainers/features/python:1": {},
-    "ghcr.io/devcontainers/features/node:1": {},
-    "ghcr.io/devcontainers/features/neovim:1": {}
-  },
-  "postCreateCommand": "pip install python-lsp-server[all] cmake-language-server black flake8 isort mypy && npm install -g bash-language-server vim-language-server",
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-python.python",
-        "ms-vscode.cpptools",
-        "sumneko.lua",
-        "yzhang.markdown-all-in-one",
-        "ms-python.vscode-pylance"
-      ]
-    }
-  }
+  "build": { "dockerfile": "Dockerfile" }
 }
