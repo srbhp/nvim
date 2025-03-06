@@ -67,3 +67,13 @@ There are thousands of Neovim plugins available on GitHub. Only use the ones tha
    :checkhealth
    ```
    This will give you the current status of Neovim and report if there are any missing dependencies.
+
+### Development Container
+
+To set up a development environment using a devcontainer, follow these steps:
+
+1. Ensure you have Docker installed on your machine.
+2. Open the project in a container using Visual Studio Code.
+3. When prompted, select "Reopen in Container".
+
+This will set up the development environment with all necessary dependencies and tools.
