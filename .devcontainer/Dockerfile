@@ -1,5 +1,5 @@
 
-FROM opensuse/leap
+FROM opensuse/tumbleweed
 RUN zypper --non-interactive dup  
 RUN zypper --non-interactive install git qt6-pdf-devel qt6-base-devel qt6-qml-devel neovim python3-neovim python3-pip
 RUN pip install pynvim
