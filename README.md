@@ -15,11 +15,12 @@ also install using the system package manager `(apt/yum/zypper) install neovim` 
 we can get it from github.
 
 ```bash
-cd ~/bin
-wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage
+mkdir ~/.local/bin/
+cd ~/local/bin
+wget https://github.com/neovim/neovim/releases/download/v0.10.2/nvim.appimage
 mv nvim.appimage nvim
 chmod +x nvim
-export PATH=$PATH:~/bin #  add ~/bin to your PATH . Add this line to your ~/.bashrc 
+export PATH=$PATH:~/.local/bin #  add ~/.local/bin to your PATH . Add this line to your ~/.bashrc 
 ```
 
 ### Dependencies : 
@@ -42,6 +43,13 @@ that I use.
 | CMake     | 	cmake| `pip install cmake-language-server` |
 | Latex | 	    texlab|https://github.com/latex-lsp/texlab| 
 | Text  |	    textls|https://github.com/hangyav/textLSP| 
+
+#### Debian / Ubuntu 
+    
+    ``` bash 
+        apt install clangd vim git cmake python3-venv luarocks tree-sitter-dev  fd-find ripgrep gdb ninja-build
+    ```
+
 
 ###  List of Neovim Plugins
 

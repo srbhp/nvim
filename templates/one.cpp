@@ -8,4 +8,7 @@
 #include <string>
 #include <tuple>
 #include <vector>
-int main() { std::cout << " Random String " << std::endl return 0; }
+int main() {
+  std::cout << " Random String " << std::endl;
+  return 0;
+}
