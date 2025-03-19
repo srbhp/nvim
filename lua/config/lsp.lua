@@ -96,7 +96,6 @@ local servers = {
 			"--enable-config",
 		},
 	},
-
 	bashls = {},
 	vimls = {},
 	ruff = {},

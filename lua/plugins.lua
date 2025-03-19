@@ -77,6 +77,75 @@ require('lazy').setup({
 	{
 		"goolord/alpha-nvim",
 	},
+	{ -- dap config
+		'mfussenegger/nvim-dap',
+		event = 'VimEnter',
+		dependencies = {
+			{ 'theHamsta/nvim-dap-virtual-text' },
+			{ 'nvim-neotest/nvim-nio' },
+			{ 'rcarriga/nvim-dap-ui' },
+			{ 'mfussenegger/nvim-dap-python' },
+		},
+		config = function()
+			require('dap-python').setup()
+			require('dapui').setup()
+			require("config.dap")
+		end,
+
+	},
+	{ -- Fuzzy Finder (files, lsp, etc)
+		'nvim-telescope/telescope.nvim',
+		event = 'VimEnter',
+		-- branch = '0.1.x',
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+			{ -- If encountering errors, see telescope-fzf-native README for install instructions
+				'nvim-telescope/telescope-fzf-native.nvim',
+				build = 'make',
+				cond = function()
+					return vim.fn.executable 'make' == 1
+				end,
+			},
+			{ 'nvim-telescope/telescope-ui-select.nvim' },
+			{ 'nvim-tree/nvim-web-devicons', },
+		},
+		config = function()
+			-- require("config.telescope")
+		end,
+	},
+	{ -- LSP Configuration & Plugins
+		'neovim/nvim-lspconfig',
+		dependencies = {
+		},
+		config = function()
+			require("config.lsp")
+		end,
+
+	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
+			require("catppuccin").setup({
+			})
+			vim.cmd.colorscheme "catppuccin"
+		end,
+
+	},
+	--
+	-- IndentLine
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
+		config = function()
+			require("config.ibl")
+		end,
+	},
+	{
+		"goolord/alpha-nvim",
+	},
 
 	{
 		"nvim-lualine/lualine.nvim",
