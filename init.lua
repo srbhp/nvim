@@ -2,7 +2,7 @@ vim.go.termguicolors = true
 -- vim.go.t_Co = "256"
 -- vim.go.t_ut = ""
 
-vim.g.python3_host_prog = "~/.venv/bin/python" --change the default python path
+-- vim.g.python3_host_prog = "~/.venv/bin/python" --change the default python path
 require("plugins")
 require("config.alpha")
 require("config.appearance")
