@@ -51,14 +51,14 @@ jobs:
 
     - name: Get the current commit hash
       id: vars
-      run: echo "COMMIT_HASH=$(git rev-parse HEAD)" >> $GITHUB_ENV
+      run: echo "TIMESTAMP=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
 
     - name: Create a new release
       run: |
-        gh release create ${{ env.COMMIT_HASH }} \
-          --title "Release ${{ env.COMMIT_HASH }}" \
-          --notes "Automated release for commit ${{ env.COMMIT_HASH }}" \
-          --target ${{ github.ref }}
+        gh release create release-${{ env.TIMESTAMP }} \
+            --title "Release ${{ env.TIMESTAMP }}" \
+            --notes "Automated release for commit ${{ env.COMMIT_HASH }}" \
+            --target ${{ github.ref }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
