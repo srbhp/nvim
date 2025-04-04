@@ -55,5 +55,9 @@ jobs:
       # `dist/` contains the built packages, and the
       # sigstore-produced signatures and certificates.
       run: >-
+        gh release create ${{ env.COMMIT_HASH }} \
+            --title "Release ${{ env.COMMIT_HASH }}" \
+            --notes "Automated release for commit ${{ env.COMMIT_HASH }}" \
+            --target ${{ github.ref }}
         gh release upload 'latest' neovim-share.tar.gz --repo 'srbhp/nvim' --clobber
       shell: bash
