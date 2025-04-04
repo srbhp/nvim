@@ -48,6 +48,19 @@ jobs:
       run: >
         tar -cvf neovim-share.tar.gz ~/.local/share/nvim
 
+      - name: Get the current commit hash
+        id: vars
+        run: echo "COMMIT_HASH=$(git rev-parse HEAD)" >> $GITHUB_ENV
+
+      - name: Create a new release
+        run: |
+          gh release create ${{ env.COMMIT_HASH }} \
+            --title "Release ${{ env.COMMIT_HASH }}" \
+            --notes "Automated release for commit ${{ env.COMMIT_HASH }}" \
+            --target ${{ github.ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Upload artifact signatures to GitHub Release
       env:
         GITHUB_TOKEN: ${{ github.token }}
@@ -55,9 +68,5 @@ jobs:
       # `dist/` contains the built packages, and the
       # sigstore-produced signatures and certificates.
       run: >-
-        gh release create ${{ env.COMMIT_HASH }} \
-            --title "Release ${{ env.COMMIT_HASH }}" \
-            --notes "Automated release for commit ${{ env.COMMIT_HASH }}" \
-            --target ${{ github.ref }}
         gh release upload 'latest' neovim-share.tar.gz --repo 'srbhp/nvim' --clobber
       shell: bash
