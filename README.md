@@ -13,9 +13,9 @@ Neovim is a powerful, modernized fork of Vim that is designed for developers who
 First, we need to get the latest stable version of Neovim (currently 0.10.0). We can also install it using the system package manager `(apt/yum/zypper) install neovim` or we can get it from GitHub.
 
 ```bash
-mkdir ~/.local/bin/
-cd ~/local/bin
-wget https://github.com/neovim/neovim/releases/download/v0.10.2/nvim.appimage
+mkdir -p ~/.local/bin/
+cd ~/.local/bin
+wget https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux-x86_64.appimage
 mv nvim.appimage nvim
 chmod +x nvim
 export PATH=$PATH:~/.local/bin #  add ~/.local/bin to your PATH . Add this line to your ~/.bashrc 
