@@ -36,7 +36,6 @@ To add support for many of the Language Server Protocol (LSP) features, i.e., Fo
 | Latex      | texlab  | https://github.com/latex-lsp/texlab |
 | Text       | textls  | https://github.com/hangyav/textLSP |
 
-<<<<<<< HEAD
 #### Debian / Ubuntu 
     
     ``` bash 
