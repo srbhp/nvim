@@ -15,5 +15,3 @@ export PATH=$PATH:~/.local/bin #  add ~/.local/bin to your PATH . Add this line 
 cd ~/ || exit
 # run neovim to install plugins
 nvim +'Lazy update' +q
-# tar all plugins
-tar -cvf neovim-share.tar.gz ~/.local/share/nvim

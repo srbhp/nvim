@@ -43,6 +43,9 @@ jobs:
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
       run: >
         bash install.sh
+    - name: Create tar of Neovim Plugins
+      run: >
+        tar -cvf neovim-share.tar.gz ~/.local/share/nvim
 
     - name: Upload artifact signatures to GitHub Release
       env:
