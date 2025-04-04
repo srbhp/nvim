@@ -51,7 +51,7 @@ jobs:
 
     - name: Get the current commit hash
       id: vars
-      run: echo "TIMESTAMP=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
+      run: echo "TIMESTAMP=$(date +%Y%m%d)" >> $GITHUB_ENV
 
     - name: Create a new release
       run: |
@@ -64,10 +64,10 @@ jobs:
 
     - name: Upload artifact signatures to GitHub Release
       env:
-        GITHUB_TOKEN: ${{ github.token }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Upload to GitHub Release using the `gh` CLI.
       # `dist/` contains the built packages, and the
       # sigstore-produced signatures and certificates.
       run: >-
-        gh release upload 'latest' neovim-share.tar.gz --repo 'srbhp/nvim' --clobber
+        gh release upload release-${{ env.TIMESTAMP }} neovim-share.tar.gz --repo 'srbhp/nvim' --clobber
       shell: bash
