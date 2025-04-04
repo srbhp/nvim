@@ -4,7 +4,7 @@ local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
 	local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
 	vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
-end ---@diagnostic disable-next-line: undefined-field
+end
 vim.opt.rtp:prepend(lazypath)
 
 
@@ -19,7 +19,6 @@ require('lazy').setup({
 	{ -- Fuzzy Finder (files, lsp, etc)
 		'nvim-telescope/telescope.nvim',
 		event = 'VimEnter',
-		-- branch = '0.1.x',
 		dependencies = {
 			'nvim-lua/plenary.nvim',
 			{ -- If encountering errors, see telescope-fzf-native README for install instructions
@@ -209,6 +208,10 @@ require('lazy').setup({
 		config = function()
 			require("config.treesitter")
 		end,
+	},
+	{ -- doc string geraration
+		"danymat/neogen",
+		config = true,
 	},
 	-- Completion
 	{

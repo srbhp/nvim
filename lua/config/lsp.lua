@@ -114,7 +114,7 @@ local servers = {
 				},
 				-- linter options
 				pylint = {
-					enabled = true,
+					enabled = false,
 				},
 				ruff = { enabled = false },
 				pyflakes = { enabled = false },
