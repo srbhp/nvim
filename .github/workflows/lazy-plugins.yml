@@ -54,7 +54,5 @@ jobs:
       # `dist/` contains the built packages, and the
       # sigstore-produced signatures and certificates.
       run: >-
-        gh release upload
-        '${{ github.ref_name }}'  neovim-share.tar.gz 
-        --repo '${{ github.repository }}' --clobber 
+        gh release upload 'latest' neovim-share.tar.gz --repo 'srbhp/nvim' --clobber
       shell: bash
