@@ -42,7 +42,7 @@ jobs:
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
         git config --local user.name srbhp
         git config --local user.email "pradhanphy@gmail.com"
-        git add --allow-empty -m "GH action Headlines $(date)"
+        git commit --allow-empty -m "GH action Headlines $(date)"
         git push origin main 
 
     - name: Install Neovim
