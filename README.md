@@ -15,7 +15,7 @@ First, we need to get the latest stable version of Neovim (currently 0.10.0). We
 ```bash
 mkdir -p ~/.local/bin/
 cd ~/.local/bin
-wget https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux-x86_64.appimage
+wget https://github.com/neovim/neovim/releases/download/v0.11.2/nvim-linux-x86_64.appimage
 mv nvim.appimage nvim
 chmod +x nvim
 export PATH=$PATH:~/.local/bin #  add ~/.local/bin to your PATH . Add this line to your ~/.bashrc 
@@ -38,9 +38,9 @@ To add support for many of the Language Server Protocol (LSP) features, i.e., Fo
 
 #### Debian / Ubuntu 
     
-    ``` bash 
-        apt install clangd vim git cmake python3-venv luarocks tree-sitter-dev  fd-find ripgrep gdb ninja-build
-    ```
+``` bash 
+    apt install clangd vim git cmake python3-venv luarocks tree-sitter-dev  fd-find ripgrep gdb ninja-build
+```
 
 
 ### List of Neovim Plugins
@@ -51,10 +51,10 @@ There are thousands of Neovim plugins available on GitHub. Only use the ones tha
 
 1. Clone the repo
 
-    ```bash
-    cd ~/.config/
-    git clone https://github.com/srbhp/nvim.git
-    ```
+```bash
+cd ~/.config/
+git clone https://github.com/srbhp/nvim.git
+```
 
 2. Install Plugins
 

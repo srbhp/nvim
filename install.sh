@@ -8,7 +8,7 @@ sudo apt install clangd vim git cmake python3-venv luarocks tree-sitter-dev fd-f
 # install neovim
 mkdir -p ~/.local/bin/
 cd ~/.local/bin || exit
-wget https://github.com/neovim/neovim/releases/download/v0.11.0/nvim-linux-x86_64.appimage
+wget https://github.com/neovim/neovim/releases/download/v0.11.2/nvim-linux-x86_64.appimage
 mv nvim-linux-x86_64.appimage nvim
 chmod +x nvim
 export PATH=$PATH:~/.local/bin #  add ~/.local/bin to your PATH . Add this line to your ~/.bashrc
