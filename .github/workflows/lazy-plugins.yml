@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "main" ]
   schedule:
-    - cron:  '30 5,17 * * *'
+    - cron: '0 0 * * *'  # Once per day
 
 jobs:
   build:
@@ -33,7 +33,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-
+    
+    - name: Randomly decide to run (4 of 7 days)
+      id: decide
+      run: |
+          # Pick 4 random days of the week to run (0=Sunday, 6=Saturday)
+          DAYS=(0 1 2 3 4 5 6)
+          SELECTED=($(shuf -n4 -e "${DAYS[@]}"))
+          TODAY=$(date +%w)
+          echo "Selected days: ${SELECTED[@]}"
+          if [[ ! " ${SELECTED[@]} " =~ " ${TODAY} " ]]; then
+            echo "Not a selected day, exiting."
+            exit 78  # special code so job is "neutral"
+          fi
+          echo "Today is a selected day, continue."
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
       id: strings
