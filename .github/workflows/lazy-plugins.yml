@@ -76,7 +76,7 @@ jobs:
       run: |
         gh release create release-${{ env.TIMESTAMP }} \
             --title "Release ${{ env.TIMESTAMP }}" \
-            --notes "Automated release for commit ${{ env.COMMIT_HASH }}" \
+            --notes "Automated release  ${{ env.COMMIT_HASH }}" \
             --target ${{ github.ref }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
