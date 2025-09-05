@@ -84,10 +84,10 @@ local servers = {
 	bashls = {},
 	vimls = {},
 	ruff = {},
-	pylsp = {},
+	-- pylsp = {},
 	cmake = {},
 	rust_analyzer = {},
-	pyright = {},
+	-- pyright = {},
 }
 local lspconfig = require("lspconfig")
 for name, config in pairs(servers) do
