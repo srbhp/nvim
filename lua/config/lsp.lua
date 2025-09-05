@@ -8,22 +8,6 @@ end
 vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
 vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=orange ]])
 
--- vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=#5f0a0a guibg=#1f2335]])
--- vim.cmd([[autocmd! ColorScheme * highlight FloatBorder2 guifg=red ]])
--- local border = {
--- 	{ "▛", "FloatBorder" },
---
--- 	{ "▀", "FloatBorder" },
--- 	{ "▜", "FloatBorder" },
---
--- 	{ "▐", "FloatBorder" },
--- 	{ "▟", "FloatBorder" },
---
--- 	{ "▄", "FloatBorder" },
---
--- 	{ "▙", "FloatBorder" },
--- 	{ "▌", "FloatBorder" },
--- }
 -- local border = "double"
 
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -85,8 +69,8 @@ local border = {
 }
 vim.lsp.enable('luals')
 
-
-local servers = {
+local servers = { 
+	ty = {},
 	clangd = {
 		cmd = {
 			"clangd",
@@ -100,140 +84,10 @@ local servers = {
 	bashls = {},
 	vimls = {},
 	ruff = {},
-	pylsp = {
-		pylsp = {
-			plugins = {
-				-- formatter options
-				black = {
-					enabled = false
-				},
-				autopep8 = {
-					enabled = false
-				},
-				yapf = {
-					enabled = false
-				},
-				-- linter options
-				pylint = {
-					enabled = false,
-				},
-				ruff = { enabled = false },
-				pyflakes = { enabled = false },
-				pycodestyle = { enabled = false },
-				-- type checker
-				pylsp_mypy = {
-					enabled = true,
-					-- overrides = { "--python-executable", py_path, true },
-					report_progress = true,
-					live_mode = false
-				},
-				-- auto-completion options
-				jedi_completion = { fuzzy = true },
-				-- import sorting
-				isort = { enabled = true },
-			},
-		},
-	},
+	pylsp = {},
 	cmake = {},
-	texlab = {
-		settings = {
-			texlab = {
-				--auxDirectory = "/tmp/.",
-				--bibtexFormatter = "texlab",
-				build = {
-					--args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f", "-pv" },
-					--args = { "-X", "compile", "%f", "--synctex", "--keep-logs", "--keep-intermediates" },
-					-- executable = "tectonic",
-					args = { "-lualatex", "-interaction=nonstopmode", "-synctex=1", "%f" },
-					forwardSearchAfter = true,
-					onSave = true,
-					isContinuous = true,
-				},
-				chktex = {
-					onEdit = true,
-					onOpenAndSave = true,
-				},
-				diagnosticsDelay = 10,
-				formatterLineLength = 80,
-				forwardSearch = {
-					-- executable = "okular",
-					-- args = { "--unique", "--noraise", "file:%p#src:%l%f" },
-					-- executable = "zathura",
-					-- args = { "--synctex-forward", "%l:1:%f", "%p" },
-					executable = "evince-synctex",
-					args = { "-f", "%l", "%p", '"code -g %f:%l"' },
-					onSave = true,
-				},
-				latexFormatter = "latexindent",
-				latexindent = {
-					modifyLineBreaks = true,
-				},
-			},
-		},
-	},
-	textlsp = {
-		settings = {
-			textLSP = {
-				analysers = {
-					languagetool = {
-						enabled = true,
-						check_text = {
-							on_open = true,
-							on_save = true,
-							on_change = true,
-						},
-					},
-					gramformer = {
-						-- gramformer dependency needs to be installed manually
-						enabled = true,
-						gpu = true,
-						check_text = {
-							on_open = true,
-							on_save = true,
-							on_change = true,
-						},
-					},
-					openai = {
-						enabled = true,
-						api_key = "<MY_API_KEY>",
-						check_text = {
-							on_open = false,
-							on_save = false,
-							on_change = false,
-						},
-						-- model = 'text-ada-001',
-						model = "text-babbage-001",
-						-- model = 'text-curie-001',
-						-- model = 'text-davinci-003',
-						edit_model = "text-davinci-edit-001",
-						max_token = 16,
-					},
-					grammarbot = {
-						enabled = false,
-						api_key = "<MY_API_KEY>",
-						-- longer texts are split, this parameter sets the maximum number of splits per analysis
-						input_max_requests = 1,
-						check_text = {
-							on_open = false,
-							on_save = false,
-							on_change = false,
-						},
-					},
-				},
-				documents = {
-					org = {
-						org_todo_keywords = {
-							"TODO",
-							"IN_PROGRESS",
-							"DONE",
-						},
-					},
-				},
-			},
-		},
-	},
 	rust_analyzer = {},
-	-- pyright = {},
+	pyright = {},
 }
 local lspconfig = require("lspconfig")
 for name, config in pairs(servers) do
@@ -242,7 +96,10 @@ for name, config in pairs(servers) do
 	-- capabilities = capabilities,
 	--}
 	-- This is for Coq complication
-	lspconfig[name].setup(require("coq").lsp_ensure_capabilities({ settings = config }))
+	-- lspconfig[name].setup(require("coq").lsp_ensure_capabilities({ settings = config }))
+	vim.lsp.config(name , {settings = config}) 
+	vim.lsp.enable(name) 
+	-- vim.lsp.enable(require("coq").lsp_ensure_capabilities({ settings = config }))
 end
 --------------------------------------
 
