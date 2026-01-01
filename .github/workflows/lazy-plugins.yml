@@ -72,21 +72,21 @@ jobs:
       id: vars
       run: echo "TIMESTAMP=$(date +%Y%m%d)" >> $GITHUB_ENV
 
-    - name: Create a new release
-      run: |
-        gh release create release-${{ env.TIMESTAMP }} \
-            --title "Release ${{ env.TIMESTAMP }}" \
-            --notes "Automated release  ${{ env.COMMIT_HASH }}" \
-            --target ${{ github.ref }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Upload artifact signatures to GitHub Release
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # Upload to GitHub Release using the `gh` CLI.
-      # `dist/` contains the built packages, and the
-      # sigstore-produced signatures and certificates.
-      run: >-
-        gh release upload release-${{ env.TIMESTAMP }} neovim-share.tar.gz --repo 'srbhp/nvim' --clobber
-      shell: bash
+    # - name: Create a new release
+    #   run: |
+    #     gh release create release-${{ env.TIMESTAMP }} \
+    #         --title "Release ${{ env.TIMESTAMP }}" \
+    #         --notes "Automated release  ${{ env.COMMIT_HASH }}" \
+    #         --target ${{ github.ref }}
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #
+    # - name: Upload artifact signatures to GitHub Release
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   # Upload to GitHub Release using the `gh` CLI.
+    #   # `dist/` contains the built packages, and the
+    #   # sigstore-produced signatures and certificates.
+    #   run: >-
+    #     gh release upload release-${{ env.TIMESTAMP }} neovim-share.tar.gz --repo 'srbhp/nvim' --clobber
+    #   shell: bash
