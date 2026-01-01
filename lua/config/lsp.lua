@@ -67,41 +67,7 @@ local border = {
 	{ "🭼", "FloatBorder" },
 	{ "▏", "FloatBorder" },
 }
-vim.lsp.enable('luals')
 
-local servers = { 
-	ty = {},
-	clangd = {
-		cmd = {
-			"clangd",
-			"--background-index",
-			"--clang-tidy",
-			"--clang-tidy-checks=*",
-			"--header-insertion=iwyu",
-			"--enable-config",
-		},
-	},
-	bashls = {},
-	vimls = {},
-	ruff = {},
-	-- pylsp = {},
-	cmake = {},
-	rust_analyzer = {},
-	-- pyright = {},
-}
-local lspconfig = require("lspconfig")
-for name, config in pairs(servers) do
-	--lspconfig[lsp].setup {
-	-- on_attach = my_custom_on_attach,
-	-- capabilities = capabilities,
-	--}
-	-- This is for Coq complication
-	-- lspconfig[name].setup(require("coq").lsp_ensure_capabilities({ settings = config }))
-	vim.lsp.config(name , {settings = config}) 
-	vim.lsp.enable(name) 
-	-- vim.lsp.enable(require("coq").lsp_ensure_capabilities({ settings = config }))
-end
---------------------------------------
 
 vim.diagnostic.config({
 	underline = true,
