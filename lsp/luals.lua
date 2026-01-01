@@ -1,20 +1,41 @@
 return {
-  -- Command and arguments to start the server.
-  cmd = { 'lua-language-server' },
-  -- Filetypes to automatically attach to.
-  filetypes = { 'lua' },
-  -- Sets the "workspace" to the directory where any of these files is found.
-  -- Files that share a root directory will reuse the LSP server connection.
-  -- Nested lists indicate equal priority, see |vim.lsp.Config|.
-  root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
-  -- Specific settings to send to the server. The schema is server-defined.
-  -- Example: https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-      }
-    }
-  }
-}
+	cmd = { "lua-language-server" },
+	filetypes = { "lua" },
+	root_markers = {
+		".emmyrc.json",
+		".luarc.json",
+		".luarc.jsonc",
+		".luacheckrc",
+		".stylua.toml",
+		"stylua.toml",
+		"selene.toml",
+		"selene.yml",
+		".git",
+	},
+	diagnostics = {
+		-- Get the language server to recognize the `vim` global
+		globals = {
+			'vim',
+			'require'
+		},
+	},
+	workspace = {
+		-- Make the server aware of Neovim runtime files
+		library = vim.api.nvim_get_runtime_file("", true),
+	},
+	settings = {
+		Lua = {
+			codeLens = { enable = true },
+			hint = { enable = true, semicolon = "Disable" },
 
+			diagnostics = {
+				-- Get the language server to recognize the `vim` global
+				globals = { 'vim' },
+			},
+			runtime = {
+				version = 'LuaJIT',
+			}
+		}
+	}
+
+}

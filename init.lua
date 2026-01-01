@@ -11,4 +11,5 @@ require("config.telescope")
 -- Path: config/treesitter.lua does not work in plugin file
 require("config.treesitter")
 -- add neovim buildin lsp
+require("config.lsp")
 vim.lsp.enable({"ty", "clangd","ruff","luals"})

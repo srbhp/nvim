@@ -35,15 +35,6 @@ require('lazy').setup({
 			-- require("config.telescope")
 		end,
 	},
-	{ -- LSP Configuration & Plugins
-		'neovim/nvim-lspconfig',
-		dependencies = {
-		},
-		config = function()
-			require("config.lsp")
-		end,
-
-	},
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
